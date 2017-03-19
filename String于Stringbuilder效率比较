@@ -1,0 +1,12 @@
+关于String和StringBuilder效率的比较发现。
+在循环次数比较小的时候两者还没有明显差别，但是当次数进入到十万次，根据折线图可以很明显的发现，StringBuilder比String效率要高的多。
+通过网上查找的资料发现。
+String类型在做字符串的连接操作时，效率是相当低的，并且由于每做一个连接操作，都会在内存中创建一个新的对象，占用了大量的内存空间。
+这样就引出StringBuilder对象，StringBuilder对象在做字符串连接操作时是在原来的字符串上进行修改，改善了性能。
+这一点我们平时使用中也许都知道，连接操作频繁的时候，使用StringBuilder对象
+看出用String来做字符串的连接时效率非常低，但并不是所任何情况下都要用StringBuilder，
+当我们连接很少的字符串时可以用String，但当做大量的或频繁的字符串连接操作时，就一定要用StringBuilder。
+同时也在网上了解到StringBuffer。三者之间StringBuilder>StringBuffer>String。但是StringBufffer较于StringBuilder的线程是安全的。
+所以对于三者使用的总结： 1.如果要操作少量的数据用 = String
+2.单线程操作字符串缓冲区 下操作大量数据 = StringBuilder
+3.多线程操作字符串缓冲区 下操作大量数据 = StringBuffer
